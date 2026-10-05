@@ -10,6 +10,25 @@ It only reads the page in front of you. It does not scroll for you, does not ope
 
 ---
 
+
+
+https://github.com/user-attachments/assets/37c0eb85-38c4-4967-8f9b-43596fcd40b1
+
+
+
+<img width="948" height="475" alt="image" src="https://github.com/user-attachments/assets/513e476c-c0c7-4ddc-8563-63786288372c" />
+
+<img width="377" height="404" alt="image" src="https://github.com/user-attachments/assets/58bb360a-c03b-4b35-93ef-71c9782a19bf" />
+
+
+<img width="383" height="427" alt="image" src="https://github.com/user-attachments/assets/03d4585f-3089-47d8-988d-ba0cd041bd73" />
+
+<img width="370" height="408" alt="image" src="https://github.com/user-attachments/assets/feeefeeb-4160-472b-adaf-213dca719cd0" />
+
+<img width="946" height="475" alt="image" src="https://github.com/user-attachments/assets/c3b9b2c7-4246-4af3-b26f-9ff0d7e927d0" />
+
+
+
 ## Contents
 
 1. [What you get](#what-you-get)
