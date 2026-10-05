@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lead Catcher</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header>
+    <h1><img src="icons/icon48.png" alt="" width="22" height="22">Lead Catcher</h1>
+    <button id="settingsBtn" class="ghost" aria-expanded="false">Sheet setup</button>
+  </header>
+
+  <section id="settings" class="card" hidden>
+    <h2>Google Sheet connection</h2>
+    <label>Web app URL
+      <input id="sheetUrl" type="url" placeholder="https://script.google.com/macros/s/…/exec">
+    </label>
+    <label>Secret (same as LC_SECRET in the script)
+      <input id="sheetToken" type="text" autocomplete="off">
+    </label>
+    <div class="row">
+      <button id="saveSettings">Save</button>
+      <button id="testSheet" class="ghost">Test connection</button>
+    </div>
+    <p id="settingsMsg" class="hint"></p>
+  </section>
+
+  <section class="card">
+    <h2>1. Your resume</h2>
+    <label id="drop" class="drop">
+      <input id="resumeFile" type="file" accept=".pdf,.docx,.txt,application/pdf,text/plain">
+      <span id="dropText">Upload resume (PDF, DOCX or TXT)</span>
+    </label>
+    <p class="hint">Read on this computer only. It is never uploaded.</p>
+    <div id="chips" class="chips"></div>
+    <form id="addForm" class="row">
+      <input id="addInput" type="text" placeholder="Add a skill or job title">
+      <button class="ghost">Add</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <details id="fitBox">
+      <summary><h2>Fit filter</h2><span id="fitSummary" class="hint"></span></summary>
+      <label>Your experience in years
+        <input id="expYears" type="number" min="0" max="40" step="0.5" placeholder="for example 3">
+      </label>
+      <label>Places you want, comma separated (add “remote” if you accept it)
+        <input id="locInput" type="text" placeholder="bangalore, hyderabad, remote">
+      </label>
+      <label>Skip posts that contain these words
+        <input id="excludeInput" type="text">
+      </label>
+      <label>Companies never to contact (current employer, already applied)
+        <input id="blockInput" type="text" placeholder="company one, company two">
+      </label>
+      <label>Mail the same person again after this many days (only for a new post)
+        <input id="repeatDays" type="number" min="0" max="365" step="1">
+      </label>
+      <p class="hint">Posts that fail a rule are hidden, not deleted. Empty fields are ignored.</p>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>2. What to search on LinkedIn</h2>
+    <div class="row">
+      <input id="cityInput" type="text" placeholder="City (optional)" aria-label="City (optional)">
+      <select id="dateSelect" aria-label="Date posted">
+        <option value="day">Past 24 hours</option>
+        <option value="week">Past week</option>
+        <option value="month">Past month</option>
+        <option value="any">Any time</option>
+      </select>
+    </div>
+    <div id="ideas" class="ideas"></div>
+    <p id="ideaMsg" class="hint">Search opens LinkedIn's Posts tab, newest first. Then press Scan below.</p>
+  </section>
+
+  <section class="card">
+    <h2>3. Read the LinkedIn page</h2>
+    <div class="row">
+      <button id="scanBtn">Scan this page</button>
+      <label class="check"><input id="autoScan" type="checkbox"> Keep scanning while I scroll</label>
+    </div>
+    <p id="scanMsg" class="hint">Run one of the searches above, then scan. Scroll for more posts and scan again.</p>
+  </section>
+
+  <section class="card grow">
+    <div class="row spread">
+      <h2>4. Contacts found <span id="count" class="count"></span></h2>
+      <label class="check"><input id="onlyMatch" type="checkbox" checked> Only matching my resume</label>
+    </div>
+    <label class="check" id="showHiddenRow" hidden><input id="showHidden" type="checkbox"> <span id="showHiddenText"></span></label>
+    <div id="leads" class="leads"></div>
+  </section>
+
+  <footer>
+    <button id="sendBtn">Send to Google Sheet</button>
+    <button id="csvBtn" class="ghost">Download CSV</button>
+    <button id="clearBtn" class="ghost danger">Clear</button>
+    <p id="sendMsg" class="hint"></p>
+  </footer>
+
+  <script src="lib/extract.js"></script>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

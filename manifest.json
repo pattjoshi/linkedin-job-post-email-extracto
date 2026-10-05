@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Lead Catcher for LinkedIn",
+  "version": "1.5.0",
+  "description": "Reads the LinkedIn page you have open, finds hiring posts that match your resume, and saves email, company and recruiter name to your Google Sheet.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.linkedin.com/*",
+    "https://script.google.com/*",
+    "https://script.googleusercontent.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Lead Catcher",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/*"
+      ],
+      "js": [
+        "lib/extract.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
